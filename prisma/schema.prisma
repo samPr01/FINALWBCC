@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String            @id @default(cuid())
+  email            String            @unique
+  password         String
+  ethereumAddress  String?           @unique
+  btcAddress       String?
+  balance          Float             @default(1000.0)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  trades           Trade[]
+  withdrawRequests WithdrawRequest[]
+  transactions     Transaction[]
+
+  @@map("users")
+}
+
+model Trade {
+  id         String    @id @default(cuid())
+  userId     String
+  coin       String
+  type       String
+  amount     Float
+  timeframe  Int
+  returnPct  Float
+  status     String    @default("PENDING")
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("trades")
+}
+
+model WithdrawRequest {
+  id         Int       @id @default(autoincrement())
+  userId     String
+  amount     Float
+  proofImage String
+  txHash     String?
+  status     String    @default("PENDING")
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
+  user       User      @relation(fields: [userId], references: [id])
+
+  @@map("withdraw_requests")
+}
+
+model Transaction {
+  id              String   @id @default(cuid())
+  userId          String
+  walletAddress   String
+  token           String
+  type            String
+  amount          Float
+  transactionHash String?
+  status          String   @default("completed")
+  createdAt       DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id])
+
+  @@map("transactions")
+}
