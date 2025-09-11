@@ -1,3 +1,4 @@
+
 "use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
@@ -15,7 +16,7 @@ export const useUser = () => {
 };
 
 export const UserProvider = ({ children }) => {
-  const { address, isConnected } = useAccount();
+  const { address, isConnected, status } = useAccount();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -65,12 +66,14 @@ export const UserProvider = ({ children }) => {
     sync();
   }, [isConnected, address]);
 
-  // Redirect to portfolio only when on landing page
+  // Redirect to portfolio only from landing page, and only after full connection (not reconnecting)
   useEffect(() => {
-    if (isConnected && address && pathname === "/") {
+    const isLanding = pathname === "/";
+    const isReadyConnected = isConnected && !!address && status === "connected";
+    if (isLanding && isReadyConnected) {
       router.replace("/portfolio");
     }
-  }, [isConnected, address, pathname]);
+  }, [isConnected, address, status, pathname]);
 
   const updateUser = (newUserId, newWalletAddress) => {
     setUserId(newUserId || "");

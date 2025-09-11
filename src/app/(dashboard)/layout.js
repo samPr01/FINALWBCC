@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect } from "react";
@@ -6,16 +7,17 @@ import { useRouter } from "next/navigation";
 import Navigation from "../../components/Navigation";
 
 export default function DashboardLayout({ children }) {
-  const { address, isConnected, isConnecting } = useAccount();
+  const { status, isConnected } = useAccount();
   const router = useRouter();
 
   useEffect(() => {
-    if (!isConnecting && !isConnected) {
+    // Only redirect when clearly disconnected
+    if (status === "disconnected") {
       router.replace("/");
     }
-  }, [isConnecting, isConnected, router]);
+  }, [status, router]);
 
-  if (!isConnected) {
+  if (status !== "connected" && !isConnected) {
     return null;
   }
 
@@ -24,5 +26,5 @@ export default function DashboardLayout({ children }) {
       <Navigation />
       {children}
     </div>
-  );
+  );
 }

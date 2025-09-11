@@ -1,8 +1,10 @@
+
 "use client";
 
 import { useUser } from "../contexts/UserContext";
 import styles from "./Navigation.module.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Link from "next/link";
 
 export default function Navigation() {
   const { userId, walletAddress } = useUser();
@@ -10,22 +12,22 @@ export default function Navigation() {
   return (
     <header className={styles.header}>
       <div className={styles.navLeft}>
-        <a href="/" className={styles.navLink}>
+        <Link href="/" className={styles.navLink}>
           <div className={styles.logo}>WalletBase</div>
-        </a>
+        </Link>
         <nav className={styles.nav}>
-          <a href="/market" className={styles.navLink}>
+          <Link href="/market" className={styles.navLink}>
             Market
-          </a>
-          {/* <a href="/orders" className={styles.navLink}>
+          </Link>
+          {/* <Link href="/orders" className={styles.navLink}>
             Orders
-          </a> */}
-          <a href="/ai-trading" className={styles.navLink}>
+          </Link> */}
+          <Link href="/ai-trading" className={styles.navLink}>
             AI Trading
-          </a>
-          <a href="/settings" className={styles.navLink}>
+          </Link>
+          <Link href="/settings" className={styles.navLink}>
             Settings
-          </a>
+          </Link>
         </nav>
       </div>
 
