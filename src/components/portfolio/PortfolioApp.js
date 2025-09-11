@@ -1312,11 +1312,11 @@ export default function PortfolioApp() {
                         {coin.priceChange >= 0 ? "↗ BULL" : "↘ BEAR"}
                       </span>
                     </div>
-                    <Link href={`/tradepage/${coin.symbol.toLowerCase()}`}>
+                    {/* <Link href={`/tradepage/${coin.symbol.toLowerCase()}`}>
                       <button className={styles.tradeButton}>
                         Trade {coin.symbol}
                       </button>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>
