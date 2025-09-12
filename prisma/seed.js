@@ -12,7 +12,7 @@ async function main() {
       id: "test-user-1",
       email: "test@example.com",
       password: "seeded-password",
-      balance: 1000,
+      balance: 0,
       ethereumAddress: null,
       btcAddress: null,
     },
