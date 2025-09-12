@@ -1203,10 +1203,10 @@ export default function PortfolioApp() {
                 </>
               )}
               <div className={styles.modalInfo}>
-                <p>
+                {/* <p>
                   Available Balance: $
                   {usdBalances[selectedToken]?.toFixed(2) || "0.00"} USD
-                </p>
+                </p> */}
                 <p>
                   Network:{" "}
                   {selectedToken === "BTC"

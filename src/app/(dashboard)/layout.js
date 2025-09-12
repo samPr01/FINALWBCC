@@ -26,5 +26,5 @@ export default function DashboardLayout({ children }) {
       <Navigation />
       {children}
     </div>
-  );
+  );
 }
