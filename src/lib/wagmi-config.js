@@ -19,7 +19,7 @@ export const wagmiConfig = createConfig({
 });
 
 export const rainbowKitConfig = getDefaultConfig({
-  appName: "WalletBase",
+  appName: "Coincents",
   projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
   chains: [mainnet, polygon, optimism, arbitrum, base],
   ssr: true,

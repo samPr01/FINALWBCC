@@ -2,10 +2,10 @@
 // This handles storing and retrieving user data, transactions, deposits, and withdrawals
 
 // Data structure for users
-const USER_DATA_KEY = 'walletbase_users';
-const DEPOSITS_DATA_KEY = 'walletbase_deposits';
-const WITHDRAWALS_DATA_KEY = 'walletbase_withdrawals';
-const TRANSACTIONS_DATA_KEY = 'walletbase_transactions';
+const USER_DATA_KEY = 'coincents_users';
+const DEPOSITS_DATA_KEY = 'coincents_deposits';
+const WITHDRAWALS_DATA_KEY = 'coincents_withdrawals';
+const TRANSACTIONS_DATA_KEY = 'coincents_transactions';
 
 // Initialize data storage
 const initializeStorage = () => {

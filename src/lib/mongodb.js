@@ -23,20 +23,20 @@ export async function connectToDatabase() {
     console.error('💡 Please set MONGO_URI in your environment variables');
     console.error('💡 For local development, create a .env.local file');
     console.error('💡 For production, set it in Netlify environment variables');
-    console.error('💡 Using fallback: mongodb://localhost:27017/walletbase');
+    console.error('💡 Using fallback: mongodb://localhost:27017/coincents');
   }
 
   try {
     console.log('Attempting to connect to MongoDB...');
-    console.log('URI:', uri || 'mongodb://localhost:27017/walletbase');
+    console.log('URI:', uri || 'mongodb://localhost:27017/coincents');
     
-    const client = new MongoClient(uri || 'mongodb://localhost:27017/walletbase');
+    const client = new MongoClient(uri || 'mongodb://localhost:27017/coincents');
     await client.connect();
     
     // Test the connection
     await client.db('admin').admin().ping();
     
-    const db = client.db('walletbase');
+    const db = client.db('coincents');
     
     cachedClient = client;
     cachedDb = db;

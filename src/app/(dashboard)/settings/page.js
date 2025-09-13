@@ -145,7 +145,7 @@ export default function SettingsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "walletbase-settings.json";
+    a.download = "coincents-settings.json";
     a.click();
     URL.revokeObjectURL(url);
   };

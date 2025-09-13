@@ -223,7 +223,7 @@ export default function AdminPage() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `walletbase-data-${
+      a.download = `coincents-data-${
         new Date().toISOString().split("T")[0]
       }.json`;
       document.body.appendChild(a);

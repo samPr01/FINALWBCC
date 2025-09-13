@@ -13,7 +13,7 @@ export default function Navigation() {
     <header className={styles.header}>
       <div className={styles.navLeft}>
         <Link href="/" className={styles.navLink}>
-          <div className={styles.logo}>WalletBase</div>
+          <div className={styles.logo}>Coincents</div>
         </Link>
         <nav className={styles.nav}>
           <Link href="/market" className={styles.navLink}>

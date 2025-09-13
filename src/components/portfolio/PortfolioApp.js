@@ -1203,10 +1203,10 @@ export default function PortfolioApp() {
                 </>
               )}
               <div className={styles.modalInfo}>
-                {/* <p>
+                <p>
                   Available Balance: $
                   {usdBalances[selectedToken]?.toFixed(2) || "0.00"} USD
-                </p> */}
+                </p>
                 <p>
                   Network:{" "}
                   {selectedToken === "BTC"
@@ -1252,10 +1252,10 @@ export default function PortfolioApp() {
 
       <section className={styles.marketSection}>
         <div className={styles.marketHeader}>
-          <div>
+          {/* <div>
             <h2>Live Crypto Market</h2>
             <p>Real-time cryptocurrency prices and trading</p>
-          </div>
+          </div> */}
           <button
             className={styles.refreshButton}
             onClick={() => window.location.reload()}
