@@ -11,14 +11,14 @@ model User {
   id               String            @id @default(cuid())
   email            String            @unique
   password         String
-  ethereumAddress  String?           @unique
-  btcAddress       String?
-  balance          Float             @default(0)
+  balance          Float             @default(0.0)
   createdAt        DateTime          @default(now())
   updatedAt        DateTime          @updatedAt
+  btcAddress       String?
+  ethereumAddress  String?           @unique
   trades           Trade[]
-  withdrawRequests WithdrawRequest[]
   transactions     Transaction[]
+  withdrawRequests WithdrawRequest[]
 
   @@map("users")
 }
