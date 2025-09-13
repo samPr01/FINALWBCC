@@ -16,16 +16,22 @@ export default function Navigation() {
           <div className={styles.logo}>Coincents</div>
         </Link>
         <nav className={styles.nav}>
-          <Link href="/market" className={styles.navLink}>
+          <Link
+            href="/market"
+            className={`${styles.navLink} ${styles.gradientBox}`}
+          >
             Market
           </Link>
-          {/* <Link href="/orders" className={styles.navLink}>
-            Orders
-          </Link> */}
-          <Link href="/ai-trading" className={styles.navLink}>
+          <Link
+            href="/ai-trading"
+            className={`${styles.navLink} ${styles.gradientBox}`}
+          >
             AI Trading
           </Link>
-          <Link href="/settings" className={styles.navLink}>
+          <Link
+            href="/settings"
+            className={`${styles.navLink} ${styles.gradientBox}`}
+          >
             Settings
           </Link>
         </nav>
