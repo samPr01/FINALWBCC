@@ -1261,7 +1261,7 @@ export default function PortfolioApp() {
             onClick={() => window.location.reload()}
           >
             <span className={styles.refreshIcon}>↻</span>
-            Refresh
+            {/* Refresh */}
           </button>
         </div>
         {isLoading ? (
